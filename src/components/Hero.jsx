@@ -114,8 +114,8 @@ const Hero = () => {
                   <span>Order Now</span>
                   <div className="btn-particles"></div>
                 </button>
-                <button className="btn-secondary glass-effect">
-                  <span>View Menu</span>
+                <button className="btn-secondary glass-effect"><a className="btn-link" href="/Menu"><span>View Menu</span></a>
+                  
                 </button>
               </div>
             </div>
@@ -162,6 +162,13 @@ const Hero = () => {
       </div>
 
       <style jsx>{`
+      .btn-secondary a, .btn-secondary a:visited {
+  color: #654321;
+  text-decoration: none;
+  display: inline-block;
+ 
+}
+
         .hero {
           min-height: 100vh;
           position: relative;
