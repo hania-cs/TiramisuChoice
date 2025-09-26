@@ -12,20 +12,23 @@ const Hero = () => {
     {
       title: "Authentic Italian Tiramisu",
       subtitle: "Handcrafted with Love & Tradition",
-      description: "Experience the perfect blend of coffee-soaked ladyfingers, rich mascarpone, and delicate cocoa powder in every heavenly bite.",
-      accent: "Authenticity"
+      description:
+        "Experience the perfect blend of coffee-soaked ladyfingers, rich mascarpone, and delicate cocoa powder in every heavenly bite.",
+      accent: "Authenticity",
     },
     {
       title: "Premium Ingredients Only",
       subtitle: "Quality You Can Taste",
-      description: "We source the finest mascarpone, authentic Italian coffee, and premium cocoa to create an unforgettable dessert experience.",
-      accent: "Premium"
+      description:
+        "We source the finest mascarpone, authentic Italian coffee, and premium cocoa to create an unforgettable dessert experience.",
+      accent: "Premium",
     },
     {
       title: "Made Fresh Daily",
       subtitle: "Taste the Difference",
-      description: "Our tiramisu is prepared fresh every morning using traditional recipes passed down through generations of Italian artisans.",
-      accent: "Fresh"
+      description:
+        "Our tiramisu is prepared fresh every morning using traditional recipes passed down through generations of Italian artisans.",
+      accent: "Fresh",
     },
   ]
 
@@ -43,42 +46,51 @@ const Hero = () => {
         const rect = heroRef.current.getBoundingClientRect()
         setMousePosition({
           x: (e.clientX - rect.left) / rect.width,
-          y: (e.clientY - rect.top) / rect.height
+          y: (e.clientY - rect.top) / rect.height,
         })
       }
     }
 
     const heroElement = heroRef.current
     if (heroElement) {
-      heroElement.addEventListener('mousemove', handleMouseMove)
-      return () => heroElement.removeEventListener('mousemove', handleMouseMove)
+      heroElement.addEventListener("mousemove", handleMouseMove)
+      return () => heroElement.removeEventListener("mousemove", handleMouseMove)
     }
   }, [])
 
   return (
-    <section className="hero" id="home" ref__={heroRef}>
+    <section className="hero" id="home" ref={heroRef}>
       {/* Dynamic Background Layers */}
       <div className="background-layers">
-        <div className="gradient-orb orb-1" style={{
-          transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 15}px)`
-        }}></div>
-        <div className="gradient-orb orb-2" style={{
-          transform: `translate(${mousePosition.x * -15}px, ${mousePosition.y * 20}px)`
-        }}></div>
-        <div className="gradient-orb orb-3" style={{
-          transform: `translate(${mousePosition.x * 10}px, ${mousePosition.y * -10}px)`
-        }}></div>
-        
+        <div
+          className="gradient-orb orb-1"
+          style={{
+            transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 15}px)`,
+          }}
+        ></div>
+        <div
+          className="gradient-orb orb-2"
+          style={{
+            transform: `translate(${mousePosition.x * -15}px, ${mousePosition.y * 20}px)`,
+          }}
+        ></div>
+        <div
+          className="gradient-orb orb-3"
+          style={{
+            transform: `translate(${mousePosition.x * 10}px, ${mousePosition.y * -10}px)`,
+          }}
+        ></div>
+
         {/* Animated Pattern */}
         <div className="pattern-overlay">
-          {Array.from({length: 20}).map((_, i) => (
-            <div 
-              key={i} 
-              className="pattern-dot" 
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div
+              key={i}
+              className="pattern-dot"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`
+                animationDelay: `${Math.random() * 3}s`,
               }}
             ></div>
           ))}
@@ -96,26 +108,26 @@ const Hero = () => {
             </div>
 
             <div className="text-content">
-              <h1 className={`hero-title ${isLoaded ? 'animate-in' : ''}`}>
-                <span className="title-line">{slides[currentSlide].title.split(' ').slice(0, 2).join(' ')}</span>
-                <span className="title-line accent-line">{slides[currentSlide].title.split(' ').slice(2).join(' ')}</span>
+              <h1 className={`hero-title ${isLoaded ? "animate-in" : ""}`}>
+                <span className="title-line">{slides[currentSlide].title.split(" ").slice(0, 2).join(" ")}</span>
+                <span className="title-line accent-line">
+                  {slides[currentSlide].title.split(" ").slice(2).join(" ")}
+                </span>
               </h1>
-              
-              <h2 className="hero-subtitle">
-                {slides[currentSlide].subtitle}
-              </h2>
-              
-              <p className="hero-description">
-                {slides[currentSlide].description}
-              </p>
+
+              <h2 className="hero-subtitle">{slides[currentSlide].subtitle}</h2>
+
+              <p className="hero-description">{slides[currentSlide].description}</p>
 
               <div className="cta-section">
                 <button className="btn-primary glow-hover">
                   <span>Order Now</span>
                   <div className="btn-particles"></div>
                 </button>
-                <button className="btn-secondary glass-effect"><a className="btn-link" href="/Menu"><span>View Menu</span></a>
-                  
+                <button className="btn-secondary glass-effect">
+                  <a className="btn-link" href="/Menu">
+                    <span>View Menu</span>
+                  </a>
                 </button>
               </div>
             </div>
@@ -132,7 +144,7 @@ const Hero = () => {
                 />
                 <div className="image-glow"></div>
               </div>
-              
+
               {/* Decorative Elements */}
               <div className="deco-elements">
                 <div className="coffee-steam steam-1"></div>
@@ -149,9 +161,9 @@ const Hero = () => {
         {/* Custom Progress Indicators */}
         <div className="slide-progress">
           {slides.map((_, index) => (
-            <div 
+            <div
               key={index}
-              className={`progress-bar ${index === currentSlide ? 'active' : ''}`}
+              className={`progress-bar ${index === currentSlide ? "active" : ""}`}
               onClick={() => setCurrentSlide(index)}
             >
               <div className="progress-fill"></div>
@@ -619,6 +631,11 @@ const Hero = () => {
             grid-template-columns: 1fr;
             gap: 50px;
             text-align: center;
+          }
+          
+          /* Removed display: none to show the visual panel on mobile */
+          .visual-panel {
+            order: -1; /* Move image above text content */
           }
           
           .hero-title {

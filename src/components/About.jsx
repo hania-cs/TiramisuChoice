@@ -218,7 +218,6 @@ const About = () => {
         }
         
         .about-content {
-          /* Changed from rigid 3-column grid to flexible 2-section layout */
           display: flex;
           flex-direction: column;
           gap: 80px;
@@ -226,11 +225,12 @@ const About = () => {
           z-index: 2;
           max-width: 1200px;
           margin: 0 auto;
+          padding: 0 20px;
         }
 
         .hero-section {
           display: flex;
-          gap: 120px; /* increased gap from 80px to 120px for more space between stats and photo */
+          gap: 120px;
           align-items: center;
         }
 
@@ -238,11 +238,10 @@ const About = () => {
           flex: 0 0 45%;
           display: flex;
           flex-direction: column;
-          gap: 40px; /* increased gap from 30px to 40px for more space between text and stats */
+          gap: 40px;
         }
 
         .content-section {
-          /* Restoring horizontal layout for story cards */
           display: flex;
           flex-direction: row;
           gap: 40px;
@@ -251,7 +250,6 @@ const About = () => {
         }
 
         .story-cards {
-          /* Making story cards horizontal again */
           display: flex;
           flex-direction: row;
           gap: 20px;
@@ -269,7 +267,6 @@ const About = () => {
           transition: all 0.6s ease;
           position: relative;
           overflow: hidden;
-          /* Adding flex properties for equal width cards */
           flex: 1;
         }
 
@@ -318,7 +315,6 @@ const About = () => {
           border-radius: 15px;
           text-align: center;
           color: white;
-          /* Removing width constraints for better horizontal flow */
           flex-shrink: 0;
         }
 
@@ -543,19 +539,65 @@ const About = () => {
         }
 
         @media (max-width: 1200px) {
+          .about-content {
+            gap: 60px;
+            padding: 0 30px;
+          }
+          
+          .hero-section {
+            gap: 60px;
+          }
+          
+          .left-content {
+            flex: 1;
+          }
+          
+          .about-image {
+            flex: 1;
+          }
+          
+          .stats-horizontal {
+            width: 100%;
+            max-width: none;
+          }
+        }
+
+        @media (max-width: 992px) {
           .hero-section {
             flex-direction: column;
             gap: 40px;
             text-align: center;
           }
           
-          .stats-horizontal {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+          .left-content {
+            flex: none;
+            width: 100%;
+          }
+          
+          .about-image {
+            flex: none;
+            width: 100%;
+            max-width: 500px;
+          }
+          
+          .content-section {
+            flex-direction: column;
+            gap: 40px;
+          }
+          
+          .ingredients-showcase {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
           }
         }
 
         @media (max-width: 768px) {
+          .about-content {
+            gap: 40px;
+            padding: 0 20px;
+          }
+          
           .section-title {
             text-align: center;
             font-size: 2.2rem;
@@ -564,6 +606,77 @@ const About = () => {
           .stats-horizontal {
             grid-template-columns: 1fr;
             gap: 15px;
+          }
+          
+          .story-cards {
+            flex-direction: column;
+            gap: 20px;
+          }
+          
+          .story-card {
+            padding: 20px;
+          }
+          
+          .floating-element {
+            width: 40px;
+            height: 40px;
+          }
+          
+          .image-container {
+            max-width: 100%;
+          }
+          
+          .image-container img {
+            height: 280px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .about-content {
+            padding: 0 15px;
+            gap: 30px;
+          }
+          
+          .section-title {
+            font-size: 1.8rem;
+          }
+          
+          .hero-text p {
+            font-size: 0.95rem;
+          }
+          
+          .stat {
+            padding: 15px;
+          }
+          
+          .stat-number {
+            font-size: 1.5rem;
+          }
+          
+          .story-card {
+            padding: 15px;
+          }
+          
+          .ingredients-showcase {
+            padding: 20px;
+          }
+          
+          .ingredient-name {
+            font-size: 1.2rem;
+          }
+          
+          .overlay-content h3 {
+            font-size: 1.2rem;
+          }
+          
+          .authenticity-badges {
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
           }
         }
       `}</style>

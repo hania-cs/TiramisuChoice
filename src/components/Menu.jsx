@@ -457,31 +457,53 @@ export default function Menu() {
           line-height: 1.6;
         }
 
-        @media (max-width: 768px) {
-          .hero-section {
-            padding: 60px 20px 40px;
-          }
+       @media (max-width: 480px) {
+  .brand-title {
+    font-size: 2.5rem;
+  }
 
-          .flavors-section,
-          .menu-section,
-          .additives-section {
-            padding-left: 20px;
-            padding-right: 20px;
-          }
+  .brand-subtitle {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
 
-          .flavors-grid {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-          }
+  .section-title {
+    font-size: 1.8rem;
+  }
 
-          .items-grid {
-            grid-template-columns: 1fr;
-          }
+  .flavors-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 
-          .additives-list {
-            gap: 20px;
-          }
-        }
+  .flavor-image {
+    width: 90px;
+    height: 90px;
+  }
+
+  .item-name {
+    font-size: 1.1rem;
+  }
+
+  .item-price {
+    font-size: 1.4rem;
+  }
+
+  .menu-item {
+    padding: 20px;
+  }
+
+  .additives-list {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .additive-item {
+    font-size: 1rem;
+    width: 100%;
+  }
+}
+
       `}</style>
 
       <div className="floating-elements">
